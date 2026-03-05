@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#F48B8B] text-[#2D2D2D] antialiased;
+  }
+}
+
+.glass-card {
+  @apply bg-white/10 backdrop-blur-xl border border-white/20;
+}
+
+.bg-hematogenix {
+  background: radial-gradient(circle at center, #F48B8B 0%, #E87A7A 100%);
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#E89B86] to-[#C56E58];
+}
