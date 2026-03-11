@@ -38,9 +38,6 @@ const problems = [
   { icon: "⊕", title: "The 'Word Search' mid-sentence", desc: "You know exactly what you want to say, but the word is trapped behind a wall. It's happening more often, and it's costing you credibility in rooms where you can't afford to hesitate." },
   { icon: "◎", title: "The 2 PM cognitive collapse", desc: "No amount of caffeine can fix it. Your brain simply goes offline, leaving you staring at your screen while the world moves on. It's not fatigue — it's a neurochemical problem." },
   { icon: "↓", title: "The anxiety of a dulling edge", desc: "You used to be the sharpest person in the room. Now you're quietly worried your best years are behind you. That fear is a signal, not a verdict — if you act on it." },
-  { icon: "⚡", title: "Burnout that won't lift", desc: "You've rested. You've taken the supplements. The fog remains. Conventional recovery doesn't work because the underlying neural repair mechanisms are depleted." },
-  { icon: "◷", title: "Memory that no longer sticks", desc: "New information slides off. Names, numbers, details — things you used to retain effortlessly now require three repetitions and still disappear by morning." },
-  { icon: "◑", title: "Sleep that doesn't restore", desc: "You sleep 7–8 hours and wake up exhausted. The restorative phases of sleep — where neural consolidation occurs — are being disrupted at a biochemical level." },
 ];
 
 /* ── Five pathways ── */
@@ -393,7 +390,7 @@ export default function CerebrolysinRx() {
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 2.5rem" }}>
           <p style={{ ...s.label, marginBottom: 16 }}>The Problem</p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 60, alignItems: "start", marginBottom: 64 }} className="grid-2">
-            <h2 style={{ ...s.h2lt }}>Six signs your neural repair system is failing you</h2>
+            <h2 style={{ ...s.h2lt }}>Three signs your neural repair system is failing you</h2>
             <p style={{ ...s.body, maxWidth: 520, paddingTop: 8 }}>
               Age-related decline in neurotrophic factor production begins in your 30s and accelerates through your 40s and 50s. The downstream effects are measurable, progressive, and — with the right intervention — addressable.
             </p>
@@ -488,48 +485,40 @@ export default function CerebrolysinRx() {
         </div>
       </section>
 
-      {/* ══ FIVE PATHWAYS ══ */}
-      <section style={{ background: "#F5F0E8", padding: "100px 0" }}>
+      {/* ══ COMBINED EVIDENCE — pathways + studies ══ */}
+      <section id="research" style={{ background: "#0D0D0D", padding: "100px 0" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 2.5rem" }}>
           <p style={{ ...s.label, marginBottom: 16 }}>Clinical Evidence</p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 60, alignItems: "start", marginBottom: 64 }} className="grid-2">
-            <h2 style={{ ...s.h2lt }}>Five evidence-backed pathways</h2>
-            <p style={{ ...s.body, maxWidth: 520, paddingTop: 8 }}>
+            <h2 style={{ ...s.h2dk }}>The research behind the protocol</h2>
+            <p style={{ ...s.bodyLt, paddingTop: 8 }}>
               Cerebrolysin's effects are documented across peer-reviewed Phase 3 trials, randomized controlled studies, and decades of clinical use. Each pathway below is supported by a specific citation.
             </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+
+          {/* Pathways list */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 0, marginBottom: 80 }}>
             {pathways.map((p, i) => (
               <div key={p.n} style={{
                 display: "grid", gridTemplateColumns: "80px 1fr 1fr",
                 gap: 40, padding: "36px 0",
-                borderBottom: i < pathways.length - 1 ? "1px solid rgba(13,13,13,0.08)" : "none",
+                borderBottom: "1px solid rgba(245,240,232,0.07)",
                 alignItems: "start",
               }} className="grid-3">
-                <span style={{ fontFamily: DM, fontWeight: 300, fontSize: "2rem", color: "rgba(13,13,13,0.15)", letterSpacing: "-0.04em", lineHeight: 1 }}>{p.n}</span>
+                <span style={{ fontFamily: DM, fontWeight: 300, fontSize: "2rem", color: "rgba(245,240,232,0.12)", letterSpacing: "-0.04em", lineHeight: 1 }}>{p.n}</span>
                 <div>
-                  <h3 style={{ ...s.h3lt, marginBottom: 10 }}>{p.title}</h3>
-                  <p style={{ ...s.body, margin: 0 }}>{p.body}</p>
+                  <h3 style={{ ...s.h3dk, marginBottom: 10 }}>{p.title}</h3>
+                  <p style={{ ...s.bodyLt, margin: 0 }}>{p.body}</p>
                 </div>
                 <div style={{ paddingTop: 4 }}>
-                  <p style={{ ...s.cite }}>Source: {p.cite}</p>
+                  <p style={{ ...s.cite, color: "rgba(201,169,110,0.6)" }}>Source: {p.cite}</p>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ══ RESEARCH — 6 studies ══ */}
-      <section id="research" style={{ background: "#0D0D0D", padding: "100px 0" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 2.5rem" }}>
-          <p style={{ ...s.label, marginBottom: 16 }}>Peer-Reviewed Evidence</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 60, alignItems: "start", marginBottom: 64 }} className="grid-2">
-            <h2 style={{ ...s.h2dk }}>The research behind the protocol</h2>
-            <p style={{ ...s.bodyLt, paddingTop: 8 }}>
-              Cerebrolysin has more peer-reviewed clinical trial data than any other neurotrophic compound. These six studies form the evidentiary foundation of every Aurelius CerebrolysinRx protocol.
-            </p>
-          </div>
+          {/* Study cards */}
+          <p style={{ ...s.label, marginBottom: 32 }}>Peer-Reviewed Studies</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }} className="grid-3">
             {studies.map((st) => (
               <div key={st.title} style={{ background: "#141414", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "24px 22px", display: "flex", flexDirection: "column", gap: 12 }}>
