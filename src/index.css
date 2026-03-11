@@ -1,25 +1,102 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&display=swap');
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
 
-@theme {
-  --font-sans: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", sans-serif;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --aurelius-black: #0D0D0D;
+  --aurelius-gold: #C9A96E;
+  --aurelius-gold-dk: #B8924A;
+  --aurelius-cream: #F5F0E8;
+  --aurelius-stone: #8C7B6B;
+  --DM: 'DM Sans', system-ui, sans-serif;
 }
 
-@layer base {
-  body {
-    @apply bg-[#F48B8B] text-[#2D2D2D] antialiased;
-  }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--DM);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #3D3D3D;
+  background: var(--aurelius-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.glass-card {
-  @apply bg-white/10 backdrop-blur-xl border border-white/20;
+/* ── Buttons ── */
+.btn-gold {
+  background: var(--aurelius-gold);
+  color: var(--aurelius-black);
+  font-family: var(--DM);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  padding: 14px 32px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  line-height: 1;
+}
+.btn-gold:hover { background: var(--aurelius-gold-dk); }
+
+.btn-ghost-cream {
+  background: transparent;
+  color: var(--aurelius-cream);
+  font-family: var(--DM);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  padding: 13px 30px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(245,240,232,0.35);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  line-height: 1;
+}
+.btn-ghost-cream:hover {
+  border-color: var(--aurelius-cream);
+  background: rgba(245,240,232,0.08);
 }
 
-.bg-hematogenix {
-  background: radial-gradient(circle at center, #F48B8B 0%, #E87A7A 100%);
+.btn-ghost-dark {
+  background: transparent;
+  color: #3D3D3D;
+  font-family: var(--DM);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  padding: 13px 30px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(61,61,61,0.3);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  line-height: 1;
+}
+.btn-ghost-dark:hover {
+  border-color: #3D3D3D;
+  background: rgba(61,61,61,0.05);
 }
 
-.text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#E89B86] to-[#C56E58];
+/* ── Responsive grid helpers ── */
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .grid-3 { grid-template-columns: 1fr !important; }
+  .grid-4 { grid-template-columns: 1fr 1fr !important; }
+  .hide-mobile { display: none !important; }
+  .section-pad { padding: 64px 0 !important; }
+  .hero-text h1 { font-size: clamp(2rem, 8vw, 3.5rem) !important; }
 }
