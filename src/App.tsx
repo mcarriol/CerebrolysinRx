@@ -309,7 +309,7 @@ function Navbar() {
             <line x1="24" y1="20" x2="24" y2="44" stroke="#C9A96E" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
           <div style={{ lineHeight: 1 }}>
-            <span style={{ display: "block", fontFamily: DM, fontWeight: 500, fontSize: "0.9375rem", letterSpacing: "0.12em", color: "#F5F0E8", textTransform: "uppercase" }}>CerebrolysinRx</span>
+            <span style={{ display: "block", fontFamily: DM, fontWeight: 500, fontSize: "0.9375rem", letterSpacing: "0.12em", color: "#F5F0E8", textTransform: "uppercase" }}>Cerebrolysin<span style={{ color: "#D2521A" }}>Rx</span></span>
             <span style={{ display: "block", fontFamily: DM, fontWeight: 300, fontSize: "0.5625rem", letterSpacing: "0.14em", color: "#8C7B6B", textTransform: "uppercase", marginTop: 2 }}>by Aurelius Health Group</span>
           </div>
         </a>
@@ -335,7 +335,7 @@ function Navbar() {
           <a href="#cta" className="btn-gold" style={{ padding: "10px 20px", fontSize: "0.875rem" }}>Get Started</a>
         </div>
         {/* Mobile hamburger */}
-        <button onClick={() => setMenuOpen(!menuOpen)} style={{ background: "none", border: "none", cursor: "pointer", padding: 8, display: "flex", flexDirection: "column", gap: 5 }} className="flex md:hidden" aria-label="Toggle menu">
+        <button onClick={() => setMenuOpen(!menuOpen)} style={{ background: "none", border: "none", cursor: "pointer", padding: 8, flexDirection: "column", gap: 5, display: "none" }} className="mobile-hamburger" aria-label="Toggle menu">
           {[0,1,2].map((i) => <span key={i} style={{ display: "block", width: 24, height: 1.5, background: "#F5F0E8", borderRadius: 2 }} />)}
         </button>
         {menuOpen && (
@@ -369,7 +369,7 @@ export default function CerebrolysinRx() {
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
             <a href="/" style={{ ...s.label, color: "rgba(201,169,110,0.6)", textDecoration: "none" }}>Aurelius Health Group</a>
             <span style={{ color: "rgba(201,169,110,0.4)", fontSize: "0.7rem" }}>›</span>
-            <span style={{ ...s.label }}>CerebrolysinRx</span>
+            <span style={{ ...s.label }}>Cerebrolysin<span style={{ color: "#D2521A" }}>Rx</span></span>
           </div>
           <h1 style={{ ...s.h1, maxWidth: 680, marginBottom: 24 }}>
             The world's only clinically<br />proven neurotrophic peptide<br />for cognitive restoration.
@@ -725,7 +725,7 @@ export default function CerebrolysinRx() {
                   <line x1="24" y1="20" x2="24" y2="44" stroke="#C9A96E" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
                 <div>
-                  <span style={{ fontFamily: DM, fontWeight: 500, fontSize: "0.875rem", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#F5F0E8", display: "block" }}>CerebrolysinRx</span>
+                  <span style={{ fontFamily: DM, fontWeight: 500, fontSize: "0.875rem", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#F5F0E8", display: "block" }}>Cerebrolysin<span style={{ color: "#D2521A" }}>Rx</span></span>
                   <span style={{ fontFamily: DM, fontWeight: 300, fontSize: "0.6rem", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8C7B6B" }}>by Aurelius Health Group</span>
                 </div>
               </div>

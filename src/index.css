@@ -91,6 +91,20 @@ body {
   background: rgba(61,61,61,0.05);
 }
 
+/* ── Mobile hamburger ── */
+.mobile-hamburger {
+  display: none !important;
+}
+@media (max-width: 768px) {
+  .mobile-hamburger {
+    display: flex !important;
+    flex-direction: column;
+  }
+  .hidden.md\:flex {
+    display: none !important;
+  }
+}
+
 /* ── Responsive grid helpers ── */
 @media (max-width: 768px) {
   .grid-2 { grid-template-columns: 1fr !important; }
