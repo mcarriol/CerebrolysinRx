@@ -4,6 +4,7 @@
   Dark theme (#0D0D0D), DM Sans, gold accents (#C9A96E)
 */
 import { useState } from "react";
+import Navbar from "./Navbar";
 
 const DM = "'DM Sans', system-ui, sans-serif";
 
@@ -149,27 +150,7 @@ export default function PeptidesPage() {
 
   return (
     <div style={{ background: "#0D0D0D", minHeight: "100vh", fontFamily: DM }}>
-
-      {/* ── Minimal nav ── */}
-      <nav style={{ position: "sticky", top: 0, zIndex: 100, background: "rgba(13,13,13,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(201,169,110,0.1)", padding: "0" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(1.25rem,5vw,2.5rem)", height: 70, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <a href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-            <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
-              <path d="M24 4 L6 40 L14 40 L24 20 L34 40 L42 40 Z" fill="#C9A96E" />
-              <line x1="12" y1="28" x2="36" y2="28" stroke="#C9A96E" strokeWidth="2.5" strokeLinecap="round" />
-              <line x1="24" y1="20" x2="24" y2="44" stroke="#C9A96E" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-            <div style={{ lineHeight: 1 }}>
-              <span style={{ display: "block", fontFamily: DM, fontWeight: 500, fontSize: "0.9375rem", letterSpacing: "0.12em", color: "#F5F0E8", textTransform: "uppercase" }}>Cerebrolysin<span style={{ color: "#D2521A" }}>Rx</span></span>
-              <span style={{ display: "block", fontFamily: DM, fontWeight: 300, fontSize: "0.5625rem", letterSpacing: "0.14em", color: "#8C7B6B", textTransform: "uppercase", marginTop: 2 }}>by Aurelius Health Group</span>
-            </div>
-          </a>
-          <div style={{ display: "flex", gap: 12 }}>
-            <a href="/peptides" style={{ fontFamily: DM, fontSize: "0.875rem", fontWeight: 400, color: "#C9A96E", textDecoration: "none", letterSpacing: "0.04em" }}>Discover Peptides</a>
-            <a href="#" style={{ fontFamily: DM, fontSize: "0.875rem", fontWeight: 500, background: "#C9A96E", color: "#0D0D0D", padding: "8px 18px", borderRadius: 4, textDecoration: "none" }}>Get Started</a>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* ── Hero ── */}
       <section style={{ background: "#0D0D0D", padding: "clamp(60px,8vw,100px) 0" }}>
