@@ -107,10 +107,70 @@ body {
 
 /* ── Responsive grid helpers ── */
 @media (max-width: 768px) {
-  .grid-2 { grid-template-columns: 1fr !important; }
+  .grid-2 { grid-template-columns: 1fr !important; gap: 32px !important; }
   .grid-3 { grid-template-columns: 1fr !important; }
-  .grid-4 { grid-template-columns: 1fr 1fr !important; }
+  .grid-4 { grid-template-columns: 1fr !important; gap: 24px !important; }
   .hide-mobile { display: none !important; }
   .section-pad { padding: 64px 0 !important; }
   .hero-text h1 { font-size: clamp(2rem, 8vw, 3.5rem) !important; }
+
+  /* Section padding on mobile */
+  section { padding-left: 0 !important; padding-right: 0 !important; }
+  section > div { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+
+  /* Mechanism section — full mobile overhaul */
+  .mechanism-grid { gap: 40px !important; }
+
+  /* Cascade: stack pill and sub-label vertically on mobile */
+  .cascade-row { flex-direction: column !important; gap: 6px !important; flex-wrap: nowrap !important; }
+  .cascade-pill { width: 100% !important; box-sizing: border-box !important; }
+  .cascade-sub { padding-top: 0 !important; flex: none !important; width: 100% !important; }
+
+  /* Mechanism comparison table — horizontal scroll on mobile */
+  .mechanism-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .mech-table-scroll {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    /* bleed past the section padding so the scroll area is full-width */
+    margin-left: -1.25rem !important;
+    margin-right: -1.25rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    width: calc(100% + 2.5rem) !important;
+    display: block !important;
+  }
+  /* Shrink table cells so all 4 columns fit on 390px */
+  .mech-cell {
+    padding: 8px 5px !important;
+    font-size: 0.62rem !important;
+    word-break: break-word !important;
+  }
+  .mech-table-inner {
+    width: 100% !important;
+  }
+
+  /* Pathway rows stack on mobile */
+  .pathway-row { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .pathway-row .pathway-num { font-size: 1.25rem !important; }
+
+  /* Pricing card full width */
+  .pricing-card { padding: 32px 24px !important; }
+
+  /* Footer columns stack */
+  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+
+  /* Hero bottom padding */
+  .hero-inner { padding-bottom: 72px !important; padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+
+  /* CTA buttons stack */
+  .cta-buttons { flex-direction: column !important; align-items: stretch !important; }
+  .cta-buttons a { text-align: center; justify-content: center !important; }
+
+  /* FAQ sticky sidebar — remove sticky on mobile */
+  .faq-sidebar { position: static !important; }
+}
+
+@media (max-width: 480px) {
+  .grid-4 { grid-template-columns: 1fr !important; }
+  .footer-grid { grid-template-columns: 1fr !important; }
 }

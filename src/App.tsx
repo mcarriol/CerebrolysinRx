@@ -361,16 +361,16 @@ export default function CerebrolysinRx() {
         <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${IMGS.hero})`, backgroundSize: "cover", backgroundPosition: "center 30%", backgroundRepeat: "no-repeat" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.6) 55%, rgba(13,13,13,0.1) 100%)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(13,13,13,0.7) 0%, transparent 55%)" }} />
-        <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", padding: "0 2.5rem 100px", width: "100%" }}>
+        <div className="hero-inner" style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", padding: "0 2.5rem 100px", width: "100%" }}>
           {/* Sister brand breadcrumb */}
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
             <a href="/" style={{ ...s.label, color: "rgba(201,169,110,0.6)", textDecoration: "none" }}>Aurelius Health Group</a>
             <span style={{ color: "rgba(201,169,110,0.4)", fontSize: "0.7rem" }}>›</span>
             <span style={{ ...s.label }}>Cerebrolysin<span style={{ color: "#D2521A" }}>Rx</span></span>
           </div>
-          <h1 style={{ ...s.h1, maxWidth: 680, marginBottom: 24 }}>
-            The world's only clinically<br />proven neurotrophic peptide<br />for cognitive restoration.
-          </h1>
+            <h1 style={{ ...s.h1, maxWidth: 680, marginBottom: 24 }}>
+              Repair your brain.<br />Not just stimulate it.
+            </h1>
           <p style={{ ...s.bodyLt, maxWidth: 460, marginBottom: 20, fontSize: "1.0625rem" }}>
             Cerebrolysin doesn't mask cognitive decline. It addresses the root cause — providing the neurotrophic signals your brain needs to repair, rewire, and perform.
           </p>
@@ -378,7 +378,7 @@ export default function CerebrolysinRx() {
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#C9A96E", display: "inline-block" }} />
             <span style={{ ...s.bodyLt, fontSize: "0.875rem" }}>Physician-supervised · Pharma-grade compounded · Cold-shipped</span>
           </div>
-          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+          <div className="cta-buttons" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <a href="#quiz" className="btn-gold">Check My Eligibility</a>
             <a href="#mechanism" className="btn-ghost-cream">How It Works</a>
           </div>
@@ -410,10 +410,10 @@ export default function CerebrolysinRx() {
       </section>
 
       {/* ══ MECHANISM ══ */}
-      <section id="mechanism" style={{ background: "#0D0D0D", padding: "100px 0" }}>
+      <section id="mechanism" style={{ background: "#0D0D0D", padding: "100px 0" }} className="section-pad">
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 2.5rem" }}>
           <p style={{ ...s.label, marginBottom: 16 }}>The Mechanism</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }} className="grid-2">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }} className="grid-2 mechanism-grid">
             <div>
               <h2 style={{ ...s.h2dk, marginBottom: 20 }}>The neurotrophic signal itself.</h2>
               <p style={{ ...s.bodyLt, marginBottom: 40 }}>
@@ -430,16 +430,16 @@ export default function CerebrolysinRx() {
                   { node: "Neuroprotection", sub: "Antioxidant and anti-apoptotic signaling", arrow: true },
                   { node: "Cognitive Restoration", sub: "Memory, focus, processing speed", arrow: false },
                 ].map((item, i) => (
-                  <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                  <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }} className="cascade-item">
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: 14, flexWrap: "wrap" }} className="cascade-row">
                       <div style={{
                         background: i === 0 ? "#C9A96E" : "rgba(201,169,110,0.12)",
                         border: `1.5px solid ${i === 0 ? "#C9A96E" : "rgba(201,169,110,0.3)"}`,
-                        borderRadius: 6, padding: "8px 16px",
-                      }}>
+                        borderRadius: 6, padding: "8px 16px", flexShrink: 0,
+                      }} className="cascade-pill">
                         <span style={{ fontFamily: DM, fontWeight: 600, fontSize: "0.9375rem", color: i === 0 ? "#0D0D0D" : "#F5F0E8" }}>{item.node}</span>
                       </div>
-                      <span style={{ ...s.bodyLt, fontSize: "0.8rem" }}>{item.sub}</span>
+                      <span style={{ ...s.bodyLt, fontSize: "0.8rem", paddingTop: 10, flex: "1 1 140px" }} className="cascade-sub">{item.sub}</span>
                     </div>
                     {item.arrow && (
                       <div style={{ marginLeft: 24, width: 1.5, height: 20, background: "rgba(201,169,110,0.35)", margin: "4px 0 4px 24px" }} />
@@ -452,10 +452,11 @@ export default function CerebrolysinRx() {
             {/* Comparison table */}
             <div>
               <p style={{ ...s.label, marginBottom: 20 }}>Mechanism Comparison</p>
-              <div style={{ border: "1px solid rgba(245,240,232,0.1)", borderRadius: 10, overflow: "hidden" }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", background: "rgba(255,255,255,0.04)", borderBottom: "1px solid rgba(245,240,232,0.1)" }}>
+              <div className="mech-table-scroll" style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" as any }}>
+              <div className="mech-table-inner" style={{ border: "1px solid rgba(245,240,232,0.1)", borderRadius: 10, overflow: "hidden", minWidth: 0 }}>
+                <div className="mech-table-row" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", background: "rgba(255,255,255,0.04)", borderBottom: "1px solid rgba(245,240,232,0.1)" }}>
                   {["", "Cerebrolysin", "Racetams", "Stimulants"].map((h, i) => (
-                    <div key={i} style={{ padding: "14px 16px", fontFamily: DM, fontWeight: i === 1 ? 600 : 400, fontSize: "0.8rem", color: i === 1 ? "#C9A96E" : "rgba(245,240,232,0.5)", letterSpacing: "0.04em", borderRight: i < 3 ? "1px solid rgba(245,240,232,0.08)" : "none" }}>{h}</div>
+                    <div key={i} className="mech-cell" style={{ padding: "14px 16px", fontFamily: DM, fontWeight: i === 1 ? 600 : 400, fontSize: "0.8rem", color: i === 1 ? "#C9A96E" : "rgba(245,240,232,0.5)", letterSpacing: "0.04em", borderRight: i < 3 ? "1px solid rgba(245,240,232,0.08)" : "none" }}>{h}</div>
                   ))}
                 </div>
                 {[
@@ -468,9 +469,9 @@ export default function CerebrolysinRx() {
                   ["Long-term repair", "✓ Primary effect", "✗ No", "✗ No"],
                   ["Addiction potential", "✓ None", "✓ None", "✗ High"],
                 ].map((row, i) => (
-                  <div key={i} style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", borderBottom: i < 7 ? "1px solid rgba(245,240,232,0.06)" : "none" }}>
+                  <div key={i} className="mech-table-row" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", borderBottom: i < 7 ? "1px solid rgba(245,240,232,0.06)" : "none" }}>
                     {row.map((cell, j) => (
-                      <div key={j} style={{
+                      <div key={j} className="mech-cell" style={{
                         padding: "12px 16px", fontFamily: DM, fontSize: "0.8rem",
                         color: j === 0 ? "rgba(245,240,232,0.45)" : j === 1 ? (cell.startsWith("✓") ? "#C9A96E" : cell.startsWith("✗") ? "rgba(245,240,232,0.3)" : "#F5F0E8") : (cell.startsWith("✓") ? "rgba(245,240,232,0.6)" : cell.startsWith("✗") ? "rgba(245,240,232,0.25)" : "rgba(245,240,232,0.5)"),
                         borderRight: j < 3 ? "1px solid rgba(245,240,232,0.06)" : "none",
@@ -480,18 +481,19 @@ export default function CerebrolysinRx() {
                   </div>
                 ))}
               </div>
+              </div>{/* end scroll wrapper */}
             </div>
           </div>
         </div>
       </section>
 
       {/* ══ COMBINED EVIDENCE — pathways + studies ══ */}
-      <section id="research" style={{ background: "#0D0D0D", padding: "100px 0" }}>
+      <section id="research" style={{ background: "#F5F0E8", padding: "100px 0" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 2.5rem" }}>
-          <p style={{ ...s.label, marginBottom: 16 }}>Clinical Evidence</p>
+          <p style={{ ...s.label, color: "#C9A96E", marginBottom: 16 }}>Clinical Evidence</p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 60, alignItems: "start", marginBottom: 64 }} className="grid-2">
-            <h2 style={{ ...s.h2dk }}>The research behind the protocol</h2>
-            <p style={{ ...s.bodyLt, paddingTop: 8 }}>
+            <h2 style={{ ...s.h2lt }}>The research behind the protocol</h2>
+            <p style={{ ...s.body, paddingTop: 8 }}>
               Cerebrolysin's effects are documented across peer-reviewed Phase 3 trials, randomized controlled studies, and decades of clinical use. Each pathway below is supported by a specific citation.
             </p>
           </div>
@@ -502,46 +504,32 @@ export default function CerebrolysinRx() {
               <div key={p.n} style={{
                 display: "grid", gridTemplateColumns: "80px 1fr 1fr",
                 gap: 40, padding: "36px 0",
-                borderBottom: "1px solid rgba(245,240,232,0.07)",
+                borderBottom: "1px solid rgba(13,13,13,0.08)",
                 alignItems: "start",
               }} className="grid-3">
-                <span style={{ fontFamily: DM, fontWeight: 300, fontSize: "2rem", color: "rgba(245,240,232,0.12)", letterSpacing: "-0.04em", lineHeight: 1 }}>{p.n}</span>
+                <span style={{ fontFamily: DM, fontWeight: 300, fontSize: "2rem", color: "rgba(13,13,13,0.12)", letterSpacing: "-0.04em", lineHeight: 1 }}>{p.n}</span>
                 <div>
-                  <h3 style={{ ...s.h3dk, marginBottom: 10 }}>{p.title}</h3>
-                  <p style={{ ...s.bodyLt, margin: 0 }}>{p.body}</p>
+                  <h3 style={{ ...s.h3lt, marginBottom: 8 }}>{p.title}</h3>
+                  <p style={{ ...s.body, margin: 0 }}>{p.body}</p>
                 </div>
                 <div style={{ paddingTop: 4 }}>
-                  <p style={{ ...s.cite, color: "rgba(201,169,110,0.6)" }}>Source: {p.cite}</p>
+                  <p style={{ ...s.cite, color: "#8C7B6B" }}>Source: {p.cite}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Study cards */}
-          <p style={{ ...s.label, marginBottom: 32 }}>Peer-Reviewed Studies</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }} className="grid-3">
-            {studies.map((st) => (
-              <div key={st.title} style={{ background: "#141414", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "24px 22px", display: "flex", flexDirection: "column", gap: 12 }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <span style={{ ...s.label, fontSize: "0.65rem", border: "1px solid rgba(201,169,110,0.35)", borderRadius: 4, padding: "3px 8px" }}>{st.tag}</span>
-                  <span style={{ fontFamily: DM, fontWeight: 300, fontSize: "0.8rem", color: "rgba(245,240,232,0.3)" }}>{st.year}</span>
-                </div>
-                <h3 style={{ ...s.h3dk, fontSize: "0.9375rem", lineHeight: 1.4 }}>{st.title}</h3>
-                <p style={{ fontFamily: DM, fontWeight: 300, fontSize: "0.75rem", color: "#C9A96E", letterSpacing: "0.02em" }}>{st.authors} <em style={{ color: "rgba(245,240,232,0.4)" }}>{st.journal}</em></p>
-                <p style={{ ...s.bodyLt, fontSize: "0.85rem", margin: 0 }}>{st.finding}</p>
-              </div>
-            ))}
-          </div>
+          {/* Peer-Reviewed Studies removed */}
         </div>
       </section>
 
       {/* ══ 4-STEP PROTOCOL ══ */}
-      <section style={{ background: "#F5F0E8", padding: "100px 0" }}>
+      <section style={{ background: "#0D0D0D", padding: "100px 0" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 2.5rem" }}>
           <p style={{ ...s.label, marginBottom: 16 }}>The Protocol</p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 60, alignItems: "start", marginBottom: 64 }} className="grid-2">
-            <h2 style={{ ...s.h2lt }}>Four steps from intake to results</h2>
-            <p style={{ ...s.body, paddingTop: 8 }}>Designed to mirror the infrastructure of the clinical trials — physician oversight, baseline labs, pharma-grade compound, and quantified cognitive outcomes at 4 and 8 weeks.</p>
+            <h2 style={{ ...s.h2dk }}>Four steps from intake to results</h2>
+            <p style={{ ...s.bodyLt, paddingTop: 8 }}>Designed to mirror the infrastructure of the clinical trials — physician oversight, baseline labs, pharma-grade compound, and quantified cognitive outcomes at 4 and 8 weeks.</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }} className="grid-4">
             {[
@@ -563,13 +551,13 @@ export default function CerebrolysinRx() {
               },
             ].map((step) => (
               <div key={step.n} style={{ borderTop: "2px solid rgba(201,169,110,0.4)", paddingTop: 24 }}>
-                <div style={{ fontFamily: DM, fontWeight: 300, fontSize: "2.5rem", color: "rgba(13,13,13,0.12)", letterSpacing: "-0.04em", lineHeight: 1, marginBottom: 12 }}>{step.n}</div>
-                <h3 style={{ ...s.h3lt, marginBottom: 16, fontSize: "1rem" }}>{step.title}</h3>
+                <div style={{ fontFamily: DM, fontWeight: 300, fontSize: "2.5rem", color: "rgba(245,240,232,0.12)", letterSpacing: "-0.04em", lineHeight: 1, marginBottom: 12 }}>{step.n}</div>
+                <h3 style={{ ...s.h3dk, marginBottom: 16, fontSize: "1rem" }}>{step.title}</h3>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
                   {step.items.map((item) => (
                     <li key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                       <span style={{ color: "#C9A96E", fontSize: "0.75rem", marginTop: 3, flexShrink: 0 }}>◎</span>
-                      <span style={{ ...s.bodySm }}>{item}</span>
+                      <span style={{ ...s.bodyLt, fontSize: "0.875rem" }}>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -579,25 +567,7 @@ export default function CerebrolysinRx() {
         </div>
       </section>
 
-      {/* ══ WHAT'S INCLUDED ══ */}
-      <section style={{ background: "#0D0D0D", padding: "100px 0" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 2.5rem" }}>
-          <p style={{ ...s.label, marginBottom: 16 }}>What's Included</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 60, alignItems: "start", marginBottom: 64 }} className="grid-2">
-            <h2 style={{ ...s.h2dk }}>Clinical trial infrastructure. Delivered to you.</h2>
-            <p style={{ ...s.bodyLt, paddingTop: 8 }}>Every element of the Aurelius CerebrolysinRx plan mirrors the monitoring and support infrastructure used in the clinical trials that generated the evidence base.</p>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }} className="grid-3">
-            {included.map((item) => (
-              <div key={item.title} style={{ background: "#141414", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "28px 24px" }}>
-                <div style={{ width: 40, height: 40, borderRadius: "50%", border: "1px solid rgba(201,169,110,0.35)", display: "flex", alignItems: "center", justifyContent: "center", color: "#C9A96E", fontSize: "1rem", marginBottom: 16 }}>{item.icon}</div>
-                <h3 style={{ ...s.h3dk, marginBottom: 8, fontSize: "1rem" }}>{item.title}</h3>
-                <p style={{ ...s.bodyLt, fontSize: "0.875rem", margin: 0 }}>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ══ WHAT'S INCLUDED — removed ══ */}
 
       {/* ══ PRICING ══ */}
       <section id="pricing" style={{ background: "#F5F0E8", padding: "100px 0" }}>
@@ -666,7 +636,7 @@ export default function CerebrolysinRx() {
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 2.5rem" }}>
           <p style={{ ...s.label, marginBottom: 16 }}>Frequently Asked Questions</p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 80, alignItems: "start" }} className="grid-2">
-            <div style={{ position: "sticky", top: 100 }}>
+            <div className="faq-sidebar" style={{ position: "sticky", top: 100 }}>
               <h2 style={{ ...s.h2dk, marginBottom: 20 }}>Everything you need to know</h2>
               <p style={{ ...s.bodyLt }}>Including the Cerebrolysin vs. racetams vs. stimulants comparison, administration protocol, off-label prescribing, and what to expect in the first 30 days.</p>
               <div style={{ marginTop: 40 }}>
@@ -705,7 +675,7 @@ export default function CerebrolysinRx() {
       {/* ══ FOOTER ══ */}
       <footer style={{ background: "#0A0A0A", borderTop: "1px solid rgba(245,240,232,0.06)", padding: "64px 0 40px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 2.5rem" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 48, marginBottom: 56 }} className="grid-4">
+          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 48, marginBottom: 56 }} className="grid-4 footer-grid">
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
                 <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
