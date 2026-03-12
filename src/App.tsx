@@ -318,6 +318,7 @@ function Navbar() {
             { label: "Research", href: "#research" },
             { label: "Pricing", href: "#pricing" },
             { label: "FAQ", href: "#faq" },
+            { label: "Discover Peptides", href: "/peptides" },
           ].map((link) => (
             <li key={link.label}>
               <a href={link.href} style={{ fontFamily: DM, fontSize: "0.875rem", fontWeight: 400, color: "rgba(245,240,232,0.72)", textDecoration: "none", transition: "color 0.2s" }}
@@ -337,7 +338,7 @@ function Navbar() {
         </button>
         {menuOpen && (
           <div style={{ position: "fixed", top: 70, left: 0, right: 0, background: "rgba(13,13,13,0.97)", backdropFilter: "blur(16px)", padding: "24px 24px 32px", borderBottom: "1px solid rgba(201,169,110,0.15)", display: "flex", flexDirection: "column", gap: 20 }}>
-            {[{ label: "The Problem", href: "#problem" }, { label: "Mechanism", href: "#mechanism" }, { label: "Research", href: "#research" }, { label: "Pricing", href: "#pricing" }, { label: "FAQ", href: "#faq" }].map((link) => (
+            {[{ label: "The Problem", href: "#problem" }, { label: "Mechanism", href: "#mechanism" }, { label: "Research", href: "#research" }, { label: "Pricing", href: "#pricing" }, { label: "FAQ", href: "#faq" }, { label: "Discover Peptides", href: "/peptides" }].map((link) => (
               <a key={link.label} href={link.href} onClick={() => setMenuOpen(false)} style={{ fontFamily: DM, fontSize: "1rem", fontWeight: 400, color: "rgba(245,240,232,0.8)", textDecoration: "none" }}>{link.label}</a>
             ))}
             <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 8 }}>
@@ -487,6 +488,45 @@ export default function CerebrolysinRx() {
         </div>
       </section>
 
+      {/* ══ DISCOVER PEPTIDES PREVIEW ══ */}
+      <section style={{ background: "#F5F0E8", padding: "100px 0" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(1.25rem,5vw,2.5rem)" }}>
+          <p style={{ ...s.label, marginBottom: 16 }}>Aurelius Health Group</p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 60, alignItems: "start", marginBottom: 64 }} className="grid-2">
+            <h2 style={{ ...s.h2lt }}>Explore the full peptide library</h2>
+            <p style={{ ...s.body, paddingTop: 8 }}>
+              Cerebrolysin is one of 16 physician-supervised peptide protocols available through Aurelius Health Group. Each protocol is built around peer-reviewed evidence, pharma-grade compounds, and measurable outcomes.
+            </p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20, marginBottom: 48 }} className="grid-4">
+            {[
+              { name: "BPC-157", category: "RECOVERY", tag: "Tissue Repair", desc: "A gastric pentadecapeptide that accelerates healing of tendons, ligaments, and gut mucosa. Activates growth hormone receptors and promotes angiogenesis at injury sites." },
+              { name: "Ipamorelin", category: "GROWTH HORMONE", tag: "GH Secretion", desc: "A selective growth hormone secretagogue that stimulates your pituitary's own GH pulse — without cortisol or ACTH elevation. Supports body composition, recovery, and sleep quality." },
+              { name: "Tesamorelin", category: "METABOLIC", tag: "Visceral Fat", desc: "An FDA-studied GHRH analogue that reduces visceral adipose tissue and improves metabolic markers. The only peptide with Phase 3 RCT data for abdominal fat reduction." },
+              { name: "MOTS-c", category: "LONGEVITY", tag: "Mitochondrial Health", desc: "The first peptide encoded in mitochondrial DNA. Activates AMPK — the master metabolic switch — restoring cellular energy, insulin sensitivity, and longevity signaling from the source." },
+            ].map((p) => (
+              <div
+                key={p.name}
+                style={{ background: "#fff", border: "1px solid rgba(13,13,13,0.07)", borderRadius: 10, padding: "28px 24px", display: "flex", flexDirection: "column", gap: 12, transition: "box-shadow 0.2s" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(13,13,13,0.08)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.boxShadow = "none"; }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
+                  <h3 style={{ ...s.h3lt, margin: 0, fontSize: "1rem" }}>{p.name}</h3>
+                  <span style={{ fontFamily: DM, fontWeight: 500, fontSize: "0.6rem", letterSpacing: "0.1em", textTransform: "uppercase" as const, padding: "3px 8px", borderRadius: 3, background: "rgba(201,169,110,0.1)", color: "#C9A96E", border: "1px solid rgba(201,169,110,0.2)", whiteSpace: "nowrap" as const, flexShrink: 0 }}>{p.tag}</span>
+                </div>
+                <p style={{ ...s.label, margin: 0, fontSize: "0.6rem" }}>{p.category}</p>
+                <p style={{ ...s.bodySm, margin: 0, flexGrow: 1 }}>{p.desc}</p>
+                <a href="/peptides" style={{ fontFamily: DM, fontWeight: 500, fontSize: "0.875rem", background: "#0D0D0D", color: "#F5F0E8", padding: "10px 16px", borderRadius: 4, textDecoration: "none", textAlign: "center" as const, display: "block", marginTop: 4 }}>Get Started</a>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <a href="/peptides" style={{ fontFamily: DM, fontWeight: 500, fontSize: "1rem", background: "#C9A96E", color: "#0D0D0D", padding: "16px 40px", borderRadius: 4, textDecoration: "none", display: "inline-block" }}>Discover More Peptides</a>
+          </div>
+        </div>
+      </section>
+
       {/* ══ COMBINED EVIDENCE — pathways + studies ══ */}
       <section id="research" style={{ background: "#F5F0E8", padding: "100px 0" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 2.5rem" }}>
@@ -500,7 +540,7 @@ export default function CerebrolysinRx() {
 
           {/* Pathways list */}
           <div style={{ display: "flex", flexDirection: "column", gap: 0, marginBottom: 80 }}>
-            {pathways.map((p, i) => (
+            {pathways.map((p) => (
               <div key={p.n} style={{
                 display: "grid", gridTemplateColumns: "80px 1fr 1fr",
                 gap: 40, padding: "36px 0",
