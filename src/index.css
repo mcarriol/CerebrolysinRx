@@ -95,6 +95,12 @@ body {
 .mobile-hamburger {
   display: none !important;
 }
+
+/* md:hidden — visible only on mobile, hidden on desktop */
+.md\:hidden {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
   .mobile-hamburger {
     display: flex !important;
@@ -102,6 +108,10 @@ body {
   }
   .hidden.md\:flex {
     display: none !important;
+  }
+  /* Show hamburger on mobile */
+  .md\:hidden {
+    display: flex !important;
   }
 }
 
